@@ -1,4 +1,4 @@
-package com.mountzoft.tflite;
+package com.mountzoft.gc;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,4 +1,4 @@
-package com.mountzoft.tflite;
+package com.mountzoft.gc;
 
 import android.content.Intent;
 import android.os.AsyncTask;
