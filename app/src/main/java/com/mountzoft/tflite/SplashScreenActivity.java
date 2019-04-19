@@ -1,18 +1,13 @@
 package com.mountzoft.tflite;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
 import static java.lang.Thread.sleep;
 
 public class SplashScreenActivity extends AppCompatActivity {
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
-    String firstTimeCheck = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +52,6 @@ public class SplashScreenActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-
-            //this method will be running on UI thread
-            sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            editor = sharedPreferences.edit();
-            firstTimeCheck = sharedPreferences.getString("FIRST_TIME_CHECK", null);
-            editor.apply();
 
             Intent intent = new Intent(SplashScreenActivity.this,MainActivity.class);
             startActivity(intent);

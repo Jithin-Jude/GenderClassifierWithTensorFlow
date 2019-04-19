@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/about_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How is it works?"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/about_gender_classifier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp"
+            android:text="@string/about_app"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#c0c0c0"/>
+
+        <TextView
+            android:id="@+id/devloper_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meet Developer :"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/developer_portfolio_instagram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:autoLink="web|email"
+            android:text="https://www.instagram.com/mr_exception_/"
+            android:textColorLink="@color/colorAccent"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/developer_portfolio_twitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:autoLink="web|email"
+            android:text="https://twitter.com/jithin_jude"
+            android:textColorLink="@color/colorAccent"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/developer_portfolio_linkedin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:autoLink="web|email"
+            android:text="https://www.linkedin.com/in/jithinkjose1997/"
+            android:textColorLink="@color/colorAccent"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/developer_portfolio_facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:autoLink="web|email"
+            android:text="https://www.facebook.com/jithin.jude"
+            android:textColorLink="@color/colorAccent"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#c0c0c0"/>
+
+        <TextView
+            android:id="@+id/mountzoft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by MountZoft"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

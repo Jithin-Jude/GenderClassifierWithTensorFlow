@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Gender Classifier : TensorFlow</string>
+    <string name="about_app">The Application can predict your gender from your face. Machine learning model for the application is developed by retrain a MobileNet. MobileNet is a a small efficient convolutional neural network(CNN).</string>
 </resources>

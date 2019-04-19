@@ -1,6 +1,7 @@
 package com.mountzoft.tflite;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -149,6 +150,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.toggleCameraBtn) {
             cameraView.toggleFacing();
+        }
+        else if(id == R.id.about){
+            Intent intent = new Intent(MainActivity.this,AboutActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
