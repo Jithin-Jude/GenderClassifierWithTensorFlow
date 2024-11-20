@@ -3,6 +3,7 @@ package com.mountzoft.gc;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
                 cameraView.captureImage((cameraKitImage, jpeg) -> {
 
-                    Bitmap bitmap = cameraKitImage.getDrawingCache();
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(jpeg, 0, jpeg.length);
 
                     bitmap = Bitmap.createScaledBitmap(bitmap, INPUT_SIZE, INPUT_SIZE, false);
 
