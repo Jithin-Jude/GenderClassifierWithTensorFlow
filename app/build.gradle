@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\jithi\\OneDrive\\Desktop\\mountzoft\\GenderClassifierWithTensorFlow\\app_key\\gc.jks')
+            storePassword '102145@THrilling$'
+            keyPassword '102145@THrilling$'
+            keyAlias 'key0'
+        }
+    }
     namespace 'com.mountzoft.gc'
     defaultConfig {
         applicationId "com.mountzoft.tflite"
@@ -15,6 +23,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
