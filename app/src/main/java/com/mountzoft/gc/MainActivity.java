@@ -135,6 +135,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        cameraView.onStart();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         cameraView.onResume();
@@ -144,6 +150,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         cameraView.onPause();
         super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        cameraView.onStop();
+        super.onStop();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        cameraView.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override

@@ -12,11 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:adjustViewBounds="true"
-        android:keepScreenOn="true"
-        app:camera_flash="auto"
-        app:camera_facing="back"
-        app:camera_focus="continuous"
-        app:camera_permissions="camera" />
+        android:keepScreenOn="true" />
 
     <ImageView
         android:id="@+id/imageViewResult"
