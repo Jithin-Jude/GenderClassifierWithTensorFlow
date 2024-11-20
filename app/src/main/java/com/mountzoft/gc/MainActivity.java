@@ -14,12 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.wonderkiln.camerakit.CameraKitError;
-import com.wonderkiln.camerakit.CameraKitEvent;
-import com.wonderkiln.camerakit.CameraKitEventListener;
-import com.wonderkiln.camerakit.CameraKitImage;
-import com.wonderkiln.camerakit.CameraKitVideo;
-import com.wonderkiln.camerakit.CameraView;
+
+import com.camerakit.CameraKitView;
 
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -38,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewInfo;
     private Button btnDetectObject;
     private ImageView imageViewResult;
-    private CameraView cameraView;
+    private CameraKitView cameraView;
 
     MenuItem toggleCameraBtn;
 
@@ -63,64 +59,44 @@ public class MainActivity extends AppCompatActivity {
         //btnToggleCamera = findViewById(R.id.btnToggleCamera);
         btnDetectObject = findViewById(R.id.btnDetectObject);
 
-        cameraView.addCameraKitListener(new CameraKitEventListener() {
-            @Override
-            public void onEvent(CameraKitEvent cameraKitEvent) {
-
-            }
-
-            @Override
-            public void onError(CameraKitError cameraKitError) {
-
-            }
-
-            @Override
-            public void onImage(CameraKitImage cameraKitImage) {
-
-                Bitmap bitmap = cameraKitImage.getBitmap();
-
-                bitmap = Bitmap.createScaledBitmap(bitmap, INPUT_SIZE, INPUT_SIZE, false);
-
-                btnDetectObject.setVisibility(View.GONE);
-                cameraView.setVisibility(View.GONE);
-                toggleCameraBtn.setVisible(false);
-                imageViewResult.setVisibility(View.VISIBLE);
-                textViewResult.setVisibility(View.VISIBLE);
-
-
-                imageViewResult.setImageBitmap(bitmap);
-
-                final List<Classifier.Recognition> results = classifier.recognizeImage(bitmap);
-
-                String resultsString = results.toString();
-                resultsString = resultsString.replace("[","");
-                resultsString = resultsString.replace("]","");
-                resultsString = resultsString.replace(",","\n");
-
-                Log.d("JITHIN DEBUG", resultsString);
-
-                textViewInfo.setText("Here is the result with confidence score. Tap on image for next prediction.");
-                progressDialog.dismiss();
-
-                if(resultsString.substring(0, 1).equals("f")){
-                    textViewResult.setText("Female\n"+resultsString.substring(8,25));
-                }else {
-                    textViewResult.setText("Male\n"+resultsString.substring(6,23));
-                }
-
-            }
-
-            @Override
-            public void onVideo(CameraKitVideo cameraKitVideo) {
-
-            }
-        });
-
         btnDetectObject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressDialog.show();
-                cameraView.captureImage();
+
+                cameraView.captureImage((cameraKitImage, jpeg) -> {
+
+                    Bitmap bitmap = cameraKitImage.getDrawingCache();
+
+                    bitmap = Bitmap.createScaledBitmap(bitmap, INPUT_SIZE, INPUT_SIZE, false);
+
+                    btnDetectObject.setVisibility(View.GONE);
+                    cameraView.setVisibility(View.GONE);
+                    toggleCameraBtn.setVisible(false);
+                    imageViewResult.setVisibility(View.VISIBLE);
+                    textViewResult.setVisibility(View.VISIBLE);
+
+
+                    imageViewResult.setImageBitmap(bitmap);
+
+                    final List<Classifier.Recognition> results = classifier.recognizeImage(bitmap);
+
+                    String resultsString = results.toString();
+                    resultsString = resultsString.replace("[","");
+                    resultsString = resultsString.replace("]","");
+                    resultsString = resultsString.replace(",","\n");
+
+                    Log.d("JITHIN DEBUG", resultsString);
+
+                    textViewInfo.setText("Here is the result with confidence score. Tap on image for next prediction.");
+                    progressDialog.dismiss();
+
+                    if(resultsString.substring(0, 1).equals("f")){
+                        textViewResult.setText("Female\n"+resultsString.substring(8,25));
+                    }else {
+                        textViewResult.setText("Male\n"+resultsString.substring(6,23));
+                    }
+                });
             }
         });
 
@@ -161,12 +137,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        cameraView.start();
+        cameraView.onResume();
     }
 
     @Override
     protected void onPause() {
-        cameraView.stop();
+        cameraView.onPause();
         super.onPause();
     }
 
