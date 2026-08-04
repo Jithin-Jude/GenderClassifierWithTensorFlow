@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:autoLink="web|email"
-            android:text="https://www.instagram.com/mr_exception_/"
+            android:text="https://x.com/jithin_k_jose"
             android:textColorLink="@color/colorAccent"
             android:textSize="14sp" />
 
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:autoLink="web|email"
-            android:text="https://twitter.com/jithin_jude"
+            android:text="https://jithin-jude.github.io/"
             android:textColorLink="@color/colorAccent"
             android:textSize="14sp" />
 
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:autoLink="web|email"
-            android:text="https://www.linkedin.com/in/jithinkjose1997/"
+            android:text="https://www.linkedin.com/in/jithinkjose/"
             android:textColorLink="@color/colorAccent"
             android:textSize="14sp" />
 
@@ -87,7 +87,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:autoLink="web|email"
-            android:text="https://www.facebook.com/jithin.jude"
+            android:text="https://bsky.app/profile/jithinkjose.bsky.social"
             android:textColorLink="@color/colorAccent"
             android:textSize="14sp" />
 
