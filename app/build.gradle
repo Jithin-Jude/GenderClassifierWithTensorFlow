@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    compileSdk 37
     signingConfigs {
         release {
             storeFile file('C:\\Users\\jithi\\OneDrive\\Desktop\\mountzoft\\GenderClassifierWithTensorFlow\\app_key\\gc.jks')
@@ -13,8 +14,7 @@ android {
     defaultConfig {
         applicationId "com.mountzoft.tflite"
         minSdkVersion 15
-        targetSdkVersion 35
-        compileSdk 35
+        targetSdk 37
         versionCode 2
         versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
